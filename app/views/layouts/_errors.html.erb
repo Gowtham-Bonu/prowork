@@ -1,0 +1,8 @@
+  <% if !record.errors.empty? %>
+    <%# <%= debugger %>
+      <ul class='alert alert-danger'>
+        <% record.errors.to_a.each do |error| %>
+          <li><%=error%></li>
+        <% end %>
+      </ul>
+  <% end %>

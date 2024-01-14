@@ -1,0 +1,2 @@
+module Freelancer::ProfileHelper
+end

@@ -1,0 +1,76 @@
+<%= render 'mini_header' %>
+<div class='card container w-50 pt-5 pb-5 p-4'>
+  <%= render partial: 'progress', locals: { current_page: 'info' } %>
+  <h2 class='mb-3 text-center'>Build your profile</h2>
+  <%= render 'layouts/errors', record: @profile %>
+  <%= form_with model: @profile, url: profile_path do |f| %>
+    <%= f.hidden_field :current_page, value: 'info' %>
+    <div class='row d-flex justify-content-around mt-2'>
+      <div class="mb-3 field col-sm-6">
+        <%= f.label :professional_role, 'Professional Role*', class: "form-label" %>
+        <%= f.text_field :professional_role, class: "form-control" %>
+      </div>
+      <div class="card border-light mb-3 text-center col-sm-6" style="max-width: 25rem;">
+        <div class="card-header">Upload Your Avatar</div>
+        <div class="card-body">
+          <%= f.file_field :avatar %>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :skill_list, "Skills (separated by commas)*", class: "form-label" %>
+      <%= f.text_field :skill_list, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :bio, 'Bio*', class: "form-label" %>
+      <%= f.text_area :bio, size: '50x7', class: "form-control", placeholder: 'Enter your skills, experiences and interests. This is one of the first things clients will see on your profile'  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :service_list, "Services (separated by commas)*", class: "form-label" %>
+      <%= f.text_field :service_list, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :hourly_rate, "Hourly rate(dollars per hour)*", class: "form-label" %>
+      <%= f.number_field :hourly_rate, in: 3..999, step: 0.1, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :street_address, "Street address*", class: "form-label" %>
+      <%= f.text_field :street_address, class: "form-control"  %>
+    </div>
+
+    <div class="mb-3 field">
+      <%= f.label :city, "City*", class: "form-label" %>
+      <%= f.text_field :city, class: "form-control"  %>
+    </div>
+
+    <div class='row d-flex justify-content-between'>
+      <div class="mb-3 field col-sm-6">
+        <%= f.label :state, "State/Province*", class: "form-label" %>
+        <%= f.text_field :state, class: "form-control"  %>
+      </div>
+
+      <div class="mb-3 field col-sm-6">
+        <%= f.label :country, "Country*", class: "form-label" %>
+        <%= f.select :country, ['India', 'America', 'Japan', 'China', 'Europe'], {}, class: "form-control"  %>
+      </div>
+    </div>
+
+      <div class='row d-flex justify-content-between'>
+        <div class="mb-3 field col-sm-6">
+          <%= f.label :postal_code, "ZIP/Postal Code", class: "form-label" %>
+          <%= f.text_field :postal_code, class: "form-control"  %>
+        </div>
+
+        <div class="mb-3 field col-sm-6">
+          <%= f.label :phone, 'phone*', class: "form-label" %>
+          <%= f.text_field :phone, class: "form-control"  %>
+        </div>
+      </div>
+    <div class='text-center' data-turbo='false'><%= f.submit 'add experiences' ,class: 'btn btn-outline-dark' %></div>
+  <% end %>
+</div>

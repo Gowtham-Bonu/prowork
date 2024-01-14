@@ -12,4 +12,97 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
+ @import "bootstrap";
+@import "animate.min";
+@import "magnific-popup";
+@import "nice-select";
+@import "owl.carousel.min";
+@import "price_rangs";
+@import "responsive";
+@import "slick";
+@import "slicknav";
+@import "style";
+@import "themify-icons";
+@import "_apply-proces";
+@import "_blog_page";
+@import "_blog";
+@import "_bradcam";
+@import "_color";
+@import "_common";
+@import "_contact";
+@import "_cv-online";
+@import "_elements";
+@import "_extend";
+@import "_featured-Jobs";
+@import "_footer";
+@import "_h1-hero";
+@import "_headerMenu";
+@import "_job_details";
+@import "_job_listing";
+@import "_mixins";
+@import "_overlay";
+@import "_pagination";
+@import "_recent";
+@import "_services_section";
+@import "_services";
+@import "_support-company";
+@import "_team";
+@import "_testimonial";
+@import "_variables";
+@import "style";
+@import "flaticon";
+
+.field{
+  text-align: left;
+}
+*{
+  list-style-type: none;
+}
+a{
+  color: #f9176c !important;
+}
+.makepink{
+  background-color: #f9176c;
+  border-style: none;
+}
+.custom_button{
+  color: #f9176c;
+  display: block;
+  border: 1px solid #f9176c;
+  border-radius: 30px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: white;
+}
+.custom_button:hover{
+  color:white;
+  background: #f9176c;
+  border: 1px solid transparent;
+}
+#flash-box{
+    text-align: center;
+    position:fixed; 
+    top: 0px; 
+    left: 0px; 
+    width: 100%;
+    z-index:9999; 
+    border-radius:0px
+}
+.make-white:hover{
+  color: white !important;
+}
+.round-profile-image {
+  width: 150px; /* Adjust the width and height according to your requirements */
+  height: 150px;
+  border-radius: 50%;
+}
+ul{
+  padding-left: 0 !important;
+}
+.pinker{
+  color: #f9176c;
+}

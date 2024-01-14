@@ -1,0 +1,36 @@
+<div class='nested-fields'>
+  <div class="mb-3 field">
+    <%= f.label :school, 'School*', class: "form-label", placeholder: 'Ex: Parul University' %>
+    <%= f.text_field :school, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 field">
+    <%= f.label :degree, class: "form-label" %>
+    <%= f.select :degree, ['BTech', 'MTech', 'BBA', 'MBA'], {}, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 field">
+    <%= f.label :study_field, class: "form-label" %>
+    <%= f.select :study_field, ['ECE', 'CSC', 'Mech'], {}, class: "form-control" %>
+  </div>
+
+  <div class='row d-flex justify-content-between'>
+    <div class="mb-3 field col-sm-6">
+      <%= f.label :from, class: "form-label" %>
+      <%= f.date_field :from, class: "form-control", max: Date.today %>
+    </div>
+
+    <div class="mb-3 field col-sm-6">
+      <%= f.label :to, 'To(or expected graduation year)', class: "form-label" %>
+      <%= f.date_field :to, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="mb-3 field">
+    <%= f.label :description, class: "form-label" %>
+    <%= f.text_area :description, class: "form-control", size: '50x7', placeholder: 'Describe your studies, awards, etc..' %>
+  </div>
+  <div class='links text-end'>
+    <%= link_to_remove_association "remove education", f, class: 'btn btn-outline-danger make-white'%>
+  </div>
+</div>

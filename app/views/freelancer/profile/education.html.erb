@@ -1,0 +1,19 @@
+<%= render 'mini_header' %>
+<div class='card container w-50 pt-5 pb-5 p-4'>
+  <%= render partial: 'progress', locals: { current_page: 'education' } %>
+  <h2 class='mt-3 text-center'>Add Your Education Histories</h2>
+  <%= render 'layouts/errors', record: @profile %>
+  <%= form_with model: @profile do |f| %>
+    <%= f.hidden_field :current_page, value: 'education' %>
+    <div id='education_histories'>
+      <%= f.fields_for :education_histories do |e_h| %>
+        <%= render 'education_history_fields', :f => e_h %>
+        <hr />  
+      <% end %>
+      <div class='links mb-3 text-end'>
+        <%= link_to_add_association 'add education', f, :education_histories, class: 'btn btn-outline-danger make-white' %>
+      </div>
+    </div>
+    <div class='text-center' data-turbo='false'><%= f.submit 'add certifications' ,class: 'btn btn-outline-dark' %></div>
+  <% end %>
+</div>

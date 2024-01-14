@@ -1,0 +1,19 @@
+<%= render 'mini_header' %>
+<div class='card container w-50 pt-5 pb-5 p-4'>
+  <%= render partial: 'progress', locals: { current_page: 'languages' } %>
+  <h2 class='mt-3 text-center'>Languages</h2>
+  <%= render 'layouts/errors', record: @profile %>
+  <%= form_with model: @profile do |f| %>
+    <%= f.hidden_field :current_page, value: 'languages' %>
+    <div id='languages'>
+      <%= f.fields_for :languages do |l| %>
+        <%= f.hidden_field :current_page, value: 'languages' %>
+        <%= render 'language_fields', :f => l %>
+      <% end %>
+      <div class='links mb-3 text-end'>
+        <%= link_to_add_association 'add languages', f, :languages, class: 'btn btn-outline-danger make-white', :data => {"association-insertion-method" => "prepend" }, render_options: { wrapper: 'bootstrap' }  %>
+      </div>
+    </div>
+    <div class='text-center' data-turbo='false'><%= f.submit 'complete profile', class: 'btn btn-outline-dark' %></div>
+  <% end %>
+</div>

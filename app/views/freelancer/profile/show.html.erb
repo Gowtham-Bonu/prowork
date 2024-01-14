@@ -1,0 +1,163 @@
+<%= render 'layouts/header' %>
+<div class="container">
+<div class="main-body">
+<div class="row gutters-sm">
+<div class="col-md-4 mb-3">
+<div class="card">
+<div class="card-body">
+<div class="d-flex flex-column align-items-center text-center">
+<% if @profile.avatar.attached? %>
+  <%= image_tag @profile.avatar , class: "round-profile-image image-fluid"  %>
+<% else %>
+  <p>no profile uploaded</p>
+<% end %>
+<div class="mt-3">
+<div class='d-flex'>
+  <h2 class='col-sm-10'><%= "#{@profile.last_name.capitalize} #{@profile.first_name.capitalize}" %></h2>
+  <span class='col-sm-2'>
+    <%= link_to '' do %>
+      <%= image_tag 'pencil.png', size: '30x30' %>
+    <% end %>
+  </span>
+</div>
+<p class="text-muted font-size-sm"><%= "#{@profile.city}, #{@profile.state}"  %></p>
+<button class="btn btn-outline-danger make-white">Public View</button>
+</div>
+</div>
+</div>
+</div>
+<div class="card mt-3" hidden>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card mb-3">
+<div class="card-body">
+<div class="row">
+<div class="col-sm-3">
+<h5 class="mb-0">Hourly Rate</h5>
+</div>
+<div class="col-sm-9 text-dark">
+<%= "$#{@profile.hourly_rate}/hour" %>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-sm-3">
+<h5 class="mb-0">Role</h5>
+</div>
+<div class="col-sm-9 text-dark">
+<%= @profile.professional_role %>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-sm-3">
+<h5 class="mb-0">Bio</h5>
+</div>
+<div class="col-sm-9 text-dark">
+<%= @profile.bio %>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-sm-3">
+<h5 class="mb-0">Skills</h5>
+</div>
+<div class="col-sm-9 text-secondary">
+<% @profile.skill_list.each do |skill| %>
+  <span class="badge rounded-pill text-bg-secondary p-2"><%=skill%></span>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+  <div class="row g-2">
+    <div class="col-sm-6">
+      <div class="pb-3 card h-100">
+        <div class='card-body'>
+          <h6 class="d-flex align-items-center mb-3"><i class="material-icons mt-3 mr-2 pinker">education</i></h6>
+          <% if @profile.education_histories.any? %>
+            <ul class='d-inline-block'>
+              <% @profile.education_histories.each do |ed| %>
+                <ul>
+                  <li><h5><%= ed.school %></h5></li>
+                  <li><%= ed.degree %></li>
+                  <li><%= ed.study_field %></li>
+                  <li class='text-secondary'><%= "#{ed.from.year}-#{ed.to.year}" %></li>
+                </ul>
+                <hr />
+              <% end %>
+            </ul>
+          <% else %>
+            <p>no education education histories to show up</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="pt-3 pb-3 card h-100">
+        <div class='card-body'>
+          <h6 class="d-flex align-items-center mb-3"><i class="material-icons mr-2 pinker">certifications</i></h6>
+          <% if @profile.certifications.any? %>
+            <ul class='d-inline-block'>
+              <% @profile.certifications.each do |c| %>
+                <ul>
+                  <li><h5><%= c.name %></h5></li>
+                  <% if c.expiration_date %>
+                    <li class='text-secondary'><%= "#{c.issue_date.strftime('%B %y')}-#{c.expiration_date.strftime('%B %y')}" %></li>
+                  <% else %>
+                    <li class='text-secondary'><%= c.issue_date.strftime('%B %y') %></li>
+                  <% end %>
+                </ul>
+              <% end %>
+              <hr />
+            </ul>
+          <% else %>
+            <p>no education education histories to show up</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="pt-3 pb-3 card h-100">
+        <div class='card-body'>
+          <h6 class="d-flex align-items-center mb-3"><i class="material-icons mr-2 pinker">experiences</i></h6>
+          <% if @profile.experiences.any? %>
+            <ul class='d-inline-block'>
+              <% @profile.experiences.each do |e| %>
+                <ul>
+                  <li><strong><%= "#{e.title} | #{e.company}" %></strong></li>
+                  <li class='text-secondary'><%= "#{e.start_date.strftime('%B %y')}-#{e.end_date.strftime('%B %y')}" %></li>
+                </ul>
+                <hr />
+              <% end %>
+            </ul>
+          <% else %>
+            <p>no education education histories to show up</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="pt-3 pb-3 card h-100">
+        <div class='card-body'>
+          <h6 class="d-flex align-items-center mb-3"><i class="material-icons mr-2 pinker">languages</i></h6>
+          </li>
+          <% @profile.languages.each do |l| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mb-0"><%= l.name %></h6>
+              <span class="text-secondary"><%= l.proficiency %></span>
+            </li>
+            <hr />
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

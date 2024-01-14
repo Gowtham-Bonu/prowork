@@ -5,3 +5,37 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Post.destroy_all
+Post.create! ([
+  {
+    title: 'post one',
+    months: [3, 4],
+    experience: "entry",
+    hourly_rate: [4, 5],
+    project_budget: 20,
+    description: 'this project is the first one in seed data and iuhfd sklfhn bwjshgf k;ehf aksjdhf',
+    user_id: 33,
+    skill_list: ["c", "java"]
+  },
+  {
+    title: 'post two',
+    months: [4, 5],
+    experience: "intermediate",
+    hourly_rate: [6, 7],
+    project_budget: 25,
+    description: 'thiswefsf qywgfuyewqgrfd ct is the first one in seed data and iuhfd sklfhn bwjshgf k;ehf aksjdhf',
+    user_id: 33,
+    skill_list: ["c", "java"]
+  },
+  {
+    title: 'post three',
+    months: [6, 9],
+    experience: "entry",
+    hourly_rate: [2, 7],
+    project_budget: 215,
+    description: 'thisddasssssssssswefsf qywgfuewqgrfd ct is the first one in seed data and iuhfd sklfhn bwjshgf k;ehf aksjdhf',
+    user_id: 33,
+    skill_list: ["c", "java"]
+  }
+])
+p 'created posts'

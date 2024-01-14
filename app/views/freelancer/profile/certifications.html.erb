@@ -1,0 +1,19 @@
+<%= render 'mini_header' %>
+<div class='card container w-50 pt-5 pb-5 p-4'>
+  <%= render partial: 'progress', locals: { current_page: 'certifications' } %>
+  <h2 class='mt-3 text-center'>Add Your Certifications</h2>
+  <%= render 'layouts/errors', record: @profile %>
+  <%= form_with model: @profile do |f| %>
+    <%= f.hidden_field :current_page, value: 'certifications' %>
+    <div id='certifications'>
+      <%= f.fields_for :certifications do |c| %>
+          <%= render 'certification_fields', :f => c %>
+          <hr />  
+        <% end %>
+        <div class='links mb-3 text-end'>
+          <%= link_to_add_association 'add certification', f, :certifications, class: 'btn btn-outline-danger make-white' %>
+        </div>
+    </div>
+    <div class='text-center' data-turbo='false'><%= f.submit 'add languages' ,class: 'btn btn-outline-dark' %></div>
+  <% end %>
+</div>

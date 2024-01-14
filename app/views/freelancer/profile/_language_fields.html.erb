@@ -1,0 +1,6 @@
+<div class='nested-fields row mb-3'>
+  <div class='col-sm-4'><%= f.select :name, ['English', 'Telugu'], {}, class: 'form-control' %></div>
+  <div class='col-sm-4'><%= f.select :proficiency, ['Basic', 'Intermediate', 'Advance'], {}, class: 'form-control' %></div>
+  <div class='col-sm-4 text-end'><%= link_to_remove_association "remove", f, class: 'btn btn-outline-danger make-white'%></div>
+  <hr />
+</div>

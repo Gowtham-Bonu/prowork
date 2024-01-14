@@ -1,0 +1,41 @@
+<div class='nested-fields'>
+  <div class="mb-3 field">
+    <%= f.label :title, 'Title*', class: "form-label", placeholder: 'Ex: Software Engineer' %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 field">
+    <%= f.label :company, 'Company*', class: "form-label", placeholder: 'Ex: Microsoft' %>
+    <%= f.text_field :company, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 field">
+    <%= f.label :location, class: "form-label" %>
+    <%= f.text_field :location, class: "form-control" %>
+  </div>
+
+  <div class="mb-3 field">
+    <%= f.select :country, ['India', 'America', 'Japan', 'China', 'Europe'], {}, class: 'form-control' %>
+  </div>
+
+  <div class='row d-flex justify-content-between pt-3'>
+    <div class="mb-3 field col-sm-6">
+      <%= f.label :start_date, 'Start Date*', class: "form-label" %>
+      <%= f.date_field :start_date, class: "form-control", max: Date.today %>
+    </div>
+
+    <div class="mb-3 field col-sm-6">
+      <%= f.label :end_date, 'End Date/Today( if currently working in company )*', class: "form-label" %>
+      <%= f.date_field :end_date, class: "form-control", max: Date.today %>
+    </div>
+  </div>
+
+  <div class="mb-5 field">
+    <%= f.label :description, class: "form-label" %>
+    <%= f.text_area :description, class: "form-control", size: '50x7' %>
+  </div>
+
+  <div class='links text-end'>
+    <%= link_to_remove_association "remove experience", f, class: 'btn btn-outline-danger make-white'%>
+  </div>
+</div>

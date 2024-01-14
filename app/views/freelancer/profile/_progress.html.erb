@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to 'Info', new_profile_path, class: "nav-link #{ current_page == 'info' ? 'active' : ''}", aria_current: 'page' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Experiences', experiences_profile_path, class: "nav-link #{ current_page == 'experiences' ? 'active' : ''}", aria_current: 'page' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Education', education_profile_path, class: "nav-link #{ current_page == 'education' ? 'active' : ''}", aria_current: 'page' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Certifcations', certifications_profile_path, class: "nav-link #{ current_page == 'certifications' ? 'active' : ''}", aria_current: 'page' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Languages', languages_profile_path, class: "nav-link #{ current_page == 'languages' ? 'active' : ''}", aria_current: 'page' %>
+  </li>
+</ul>
